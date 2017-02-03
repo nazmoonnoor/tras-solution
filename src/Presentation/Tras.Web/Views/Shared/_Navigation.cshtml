@@ -1,0 +1,94 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span>
+                        <img alt="image" class="img-circle" src="../img/profile_small.jpg">
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">David Williams</strong>
+                            </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="mailbox.html">Mailbox</a></li>
+                        <li class="divider"></li>
+                        <li><a href="login.html">Logout</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Employee </span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>@Html.ActionLink("Profiles", "Index", "Person")</li>
+                    <li>@Html.ActionLink("Battalion Profiles", "Index", "BattalionPerson")</li>
+                </ul>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Distribution </span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>@Html.ActionLink("Process", "Dispersion", "Ration")</li>
+                </ul>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Settings </span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Ration <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                @Html.ActionLink("Ration Heads", "Index", "RationHead")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Sub Heads", "Index", "RationSubHead")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Food Item Categories", "Index", "RationItemCategory")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Food Items", "Index", "RationItem")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Packages", "Index", "Package")
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Employee <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                @Html.ActionLink("Departments", "Index", "Department")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Units", "Index", "Unit")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Directors", "Index", "Director")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Ranks", "Index", "Rank")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Mess", "Index", "Mess")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Rooms", "Index", "Room")
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        @Html.ActionLink("Constant Types", "Index", "Lookup")
+                    </li>
+                    <li>
+                        <a href="#">User Permission</a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</nav>

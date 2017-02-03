@@ -1,0 +1,105 @@
+﻿@model Tras.Web.Models.Process.Dispersion.DispersionViewModel
+@{
+    var items = Model.FoodItems;
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="col-lg-6 b-r">
+            <h2>@Html.DisplayFor(m => m.Person.FullName)</h2>
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(m => m.Person.PersonalNo):</dt>
+                <dd><span class="label label-danger">@Html.DisplayFor(m => m.Person.PersonalNo)</span></dd>
+                <dt>@Html.DisplayNameFor(m => m.Person.RankId)</dt>
+                <dd><span class="label label-success">@Html.DisplayFor(m => m.Person.RankName)</span></dd>
+            </dl>
+        </div>
+        <div class="col-lg-6">
+            <h2></h2>
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(m => m.Package.PackageCode):</dt>
+                <dd><span class="label label-default">@Html.DisplayFor(m => m.Package.PackageCode)</span></dd>
+                <dt>@Html.DisplayNameFor(m => m.Person.MaritalStatusKey)</dt>
+                <dd><span class="label label-default">@Html.DisplayFor(m => m.Person.MaritalStatusValue)</span></dd>
+                <dt>@Html.DisplayNameFor(m => m.Package.SubHeadId)</dt>
+                <dd>@Html.DisplayFor(m => m.Package.SubHeadName)</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+@using (Html.BeginWapperContent())
+{
+    <div class="col-lg-12">
+        <div class="col-lg-8 b-r">
+            @Html.DisplayFor(m => m.Person.FullName) & family
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="hide">@Html.DisplayNameFor(m => m.FoodItems[0].ItemId)</th>
+                    <th>Item</th>
+                    <th>@Html.DisplayNameFor(m => m.FoodItems[0].Own)</th>
+                    <th>@Html.DisplayNameFor(m => m.FoodItems[0].Spouse)</th>
+                    <th>@Html.DisplayNameFor(m => m.FoodItems[0].Adult)</th>
+                    <th>@Html.DisplayNameFor(m => m.FoodItems[0].Half)</th>
+                    <th>@Html.DisplayNameFor(m => m.FoodItems[0].Minor)</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                @for (int i = 0; i < Model.FoodItems.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td class="hide">@Model.FoodItems[i].ItemId</td>
+                        <td><span class="label label-primary">@Model.FoodItems[i].ItemName</span></td>
+                        <td><span class="label label-none">@Model.FoodItems[i].Own.QuantityInKg kg</span></td>
+                        <td><span class="label label-none">@Model.FoodItems[i].Spouse.QuantityInKg kg</span></td>
+                        <td><span class="label label-none">@Model.FoodItems[i].Adult.QuantityInKg kg</span></td>
+                        <td><span class="label label-none">@Model.FoodItems[i].Half.QuantityInKg kg</span></td>
+                        <td><span class="label label-none">@Model.FoodItems[i].Minor.QuantityInKg kg</span></td>
+                        <td><span class="label label-none">@Model.FoodItems[i].TotalQuantityInKg kg</span></td>
+                        <td><span class="label label-none">@Model.FoodItems[i].TotalPrice/=</span></td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <div class="col-lg-12 pull-right text-right">
+                <strong>Total Price:</strong>
+                <span class="pad-left">@Html.DisplayFor(m => m.GrossPrice) tk</span>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            Batman Ration
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="hide">@Html.DisplayNameFor(m => m.FoodItems[0].ItemId)</th>
+                        <th>Item</th>
+                        <th>@Html.DisplayNameFor(m => m.FoodItems[0].Own)</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.FoodItems.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td class="hide">@Model.FoodItems[i].ItemId</td>
+                            <td><span class="label label-primary">@Model.FoodItems[i].ItemName</span></td>
+                            <td><span class="label label-none">@Model.FoodItems[i].Own.QuantityInKg kg</span></td>
+                            <td><span class="label label-none">@Model.FoodItems[i].TotalQuantityInKg kg</span></td>
+                            <td><span class="label label-none">@Model.FoodItems[i].TotalPrice/=</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="col-lg-12 pull-right text-right">
+                <strong>Total Price:</strong>
+                <span class="pad-left">@Html.DisplayFor(m => m.GrossPrice) tk</span>
+            </div>
+        </div>
+    </div>
+}

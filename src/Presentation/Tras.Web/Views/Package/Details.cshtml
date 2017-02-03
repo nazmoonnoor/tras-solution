@@ -1,0 +1,50 @@
+﻿@model Tras.Web.Models.Ration.RationPackageModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RationPackageModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PackageId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PackageId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PackageCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PackageCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RationTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RationTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

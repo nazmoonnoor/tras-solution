@@ -1,0 +1,8 @@
+﻿-Repository [-data layer]
+-Service layer
+-Autofac
+-Automapper
+
+
+Exception
+throw new ArgumentNullException("something");

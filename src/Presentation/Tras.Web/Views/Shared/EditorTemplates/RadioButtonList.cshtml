@@ -1,0 +1,36 @@
+﻿@model dynamic
+
+@{
+    var classColMd = ViewData.ModelMetadata.AdditionalValues.ContainsKey("input-size") ? ViewData.ModelMetadata.AdditionalValues["input-size"] : 12;
+
+    var htmlAttributes = (IDictionary<string, object>)ViewData["htmlAttributes"];
+    htmlAttributes["class"] = "form-control " + (htmlAttributes.Keys.Contains("class")? htmlAttributes["class"] : "");
+    htmlAttributes["placeholder"] = ViewData.ModelMetadata.Watermark;
+
+    string label = string.Format("{0}{1}", ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.IsRequired ? " *" : "");
+
+    var selectList = ViewData["selectList"] ?? new List<SelectListItem>();
+}
+
+<div class="form-group col-md-@classColMd">
+    @Html.Label(label, new
+    {
+        @for = ViewData.ModelMetadata.PropertyName,
+        @class = "pad-right"
+    })
+    @Html.ValidationMessage(ViewData.ModelMetadata.PropertyName, "", new
+    {
+        @class = "text-danger"
+    })
+    <div class="input-group-list">
+        @foreach (var item in (IEnumerable<SelectListItem>) selectList)
+        {
+            var id = string.Format("radio-{0}", item.Value);
+            <div class="radio">
+                <label>
+                    @Html.RadioButton(ViewData.ModelMetadata.PropertyName, item.Value, item.Selected, new {id = id}) @item.Text
+                </label>
+            </div>
+        }
+    </div>
+</div>

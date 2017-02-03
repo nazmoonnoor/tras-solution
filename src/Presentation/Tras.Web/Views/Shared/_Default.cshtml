@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Primary Inspinia style -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+    @Styles.Render("~/plugins/toastrStyles")
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    @RenderSection("styles", required: false)
+    <script type="text/javascript">
+        document.write('<style type="text/css">body{display:none}</style>');
+    </script>
+    <script data-pace-options='{ "elements": { "selectors": [".selector"] }, "startOnPageLoad": false }' src="~/Scripts/plugins/pace/pace.min.js"></script>
+</head>
+<body class="top-navigation">
+    <!-- Skin configuration box -->
+    @Html.Partial("_SkinConfig")
+
+    <!-- Wrapper-->
+    <!-- PageClass give you ability to specify custom style for specific view based on action -->
+    <div id="wrapper" class="">
+        <!-- Navigation -->
+        @*@Html.Partial("_Navigation")*@
+        
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
+            @Html.Partial("_HorizontalNav")
+
+            <!-- Top Navbar -->
+            @*@Html.Partial("_TopNavbar")*@
+
+            <!-- Main view  -->
+            @RenderBody()
+        </div>
+        <!-- End page wrapper-->
+        <!-- Footer -->
+        @Html.Partial("_Footer")
+
+        <!-- Right Sidebar -->
+        @Html.Partial("_RightSidebar")
+
+    </div>
+    <!-- End wrapper-->
+    <div class="bb-alert alert" style="display:none;">
+        <span></span>
+    </div>
+    <!-- Section for main scripts render -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/bundles/inspinia")
+    @Scripts.Render("~/plugins/toastr")
+    @Scripts.Render("~/plugins/dataTables")
+    @Scripts.Render("~/bundles/tras")
+
+    <!-- Skin config script - only for demo purpose-->
+    @Scripts.Render("~/bundles/skinConfig")
+
+    <!-- Handler for local scripts -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

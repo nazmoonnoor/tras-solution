@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{711F2544-BC37-4316-A2B6-2B259BD8CB5C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tras.Services</RootNamespace>
+    <AssemblyName>Tras.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ILookupService.cs" />
+    <Compile Include="Configuration\ISettingService.cs" />
+    <Compile Include="Configuration\LookupService.cs" />
+    <Compile Include="Distribution\IMessDispersionItemRecordService.cs" />
+    <Compile Include="Distribution\IMessDispersionRecordService.cs" />
+    <Compile Include="Distribution\MessDispersionItemRecordService.cs" />
+    <Compile Include="Distribution\MessDispersionRecordService.cs" />
+    <Compile Include="Employee\DepartmentService.cs" />
+    <Compile Include="Employee\FamilyInfoService.cs" />
+    <Compile Include="Employee\IFamilyInfoService.cs" />
+    <Compile Include="Employee\IStationService.cs" />
+    <Compile Include="Employee\PersonService.cs" />
+    <Compile Include="Employee\StationService.cs" />
+    <Compile Include="Employee\UnitService.cs" />
+    <Compile Include="Employee\DirectorService.cs" />
+    <Compile Include="Employee\IDepartmentService.cs" />
+    <Compile Include="Employee\IPersonService.cs" />
+    <Compile Include="Employee\IUnitService.cs" />
+    <Compile Include="Employee\IDirectorService.cs" />
+    <Compile Include="Employee\IRankService.cs" />
+    <Compile Include="Employee\RankService.cs" />
+    <Compile Include="Process\Demand\FoodPackage.cs" />
+    <Compile Include="Process\Demand\IPackageManpower.cs" />
+    <Compile Include="Process\Demand\ManpowerTable.cs" />
+    <Compile Include="Process\Demand\ManpowerForFreshAndSpicyItemOfFree.cs" />
+    <Compile Include="Process\Demand\ManpowerForRegularItemOfFree.cs" />
+    <Compile Include="Process\Demand\ManpowerForRegularItemOfNormal.cs" />
+    <Compile Include="Process\Demand\ManpowerForRegularItemOfSubsidy.cs" />
+    <Compile Include="Process\Demand\PackageManpowerCalculator.cs" />
+    <Compile Include="Process\Demand\Manpower.cs" />
+    <Compile Include="Process\Dispersion\DispersionAsItem.cs" />
+    <Compile Include="Process\Dispersion\FoodItemScale.cs" />
+    <Compile Include="Process\Dispersion\FoodPackageItem.cs" />
+    <Compile Include="Process\Dispersion\ScaleFactory.cs" />
+    <Compile Include="Process\IDispersionService.cs" />
+    <Compile Include="Process\Dispersion\ScaleGeneral.cs" />
+    <Compile Include="Process\Dispersion\ScaleHalf.cs" />
+    <Compile Include="Process\Dispersion\IRationScale.cs" />
+    <Compile Include="Process\Dispersion\RationManager.cs" />
+    <Compile Include="Process\DispersionService.cs" />
+    <Compile Include="Process\Dispersion\FoodItem.cs" />
+    <Compile Include="Process\Dispersion\RationMonth.cs" />
+    <Compile Include="Process\Dispersion\DispersionAsScale.cs" />
+    <Compile Include="Process\Dispersion\ScaleMinor.cs" />
+    <Compile Include="Process\Dispersion\ScaleSoldier.cs" />
+    <Compile Include="Process\IRationDemandService.cs" />
+    <Compile Include="Process\Demand\RationBox.cs" />
+    <Compile Include="Process\RationDemandService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ration\IPersonPackageService.cs" />
+    <Compile Include="Ration\IRationItemCategoryService.cs" />
+    <Compile Include="Ration\IRationItemService.cs" />
+    <Compile Include="Ration\IRationHeadService.cs" />
+    <Compile Include="Ration\IPackageItemService.cs" />
+    <Compile Include="Ration\IPackageService.cs" />
+    <Compile Include="Ration\IRationSubHeadService.cs" />
+    <Compile Include="Ration\PersonPackageService.cs" />
+    <Compile Include="Process\Dispersion\Dependant.cs" />
+    <Compile Include="Ration\RationItemCategoryService.cs" />
+    <Compile Include="Ration\RationItemService.cs" />
+    <Compile Include="Ration\RationHeadService.cs" />
+    <Compile Include="Ration\PackageItemService.cs" />
+    <Compile Include="Ration\PackageService.cs" />
+    <Compile Include="Ration\RationSubHeadService.cs" />
+    <Compile Include="Report\IInvoiceMemoService.cs" />
+    <Compile Include="Report\InvoiceMemoService.cs" />
+    <Compile Include="Residence\IMessService.cs" />
+    <Compile Include="Residence\IRoomService.cs" />
+    <Compile Include="Residence\MessService.cs" />
+    <Compile Include="Residence\RoomService.cs" />
+    <Compile Include="Distribution\IDispersionItemRecordService.cs" />
+    <Compile Include="Distribution\IDispersionRecordService.cs" />
+    <Compile Include="Distribution\DispersionItemRecordService.cs" />
+    <Compile Include="Distribution\DispersionRecordService.cs" />
+    <Compile Include="Store\DemandItemRecordService.cs" />
+    <Compile Include="Store\DemandRecordService.cs" />
+    <Compile Include="Store\IDemandItemRecordService.cs" />
+    <Compile Include="Store\IDemandRecordService.cs" />
+    <Compile Include="Store\IStockItemRecordService.cs" />
+    <Compile Include="Store\IStockRecordService.cs" />
+    <Compile Include="Store\StockItemRecordService.cs" />
+    <Compile Include="Store\StockRecordService.cs" />
+    <Compile Include="UserAuth\IMethodService.cs" />
+    <Compile Include="UserAuth\IRoleMethodService.cs" />
+    <Compile Include="UserAuth\IRoleService.cs" />
+    <Compile Include="UserAuth\IUserService.cs" />
+    <Compile Include="UserAuth\IUserRoleService.cs" />
+    <Compile Include="UserAuth\MethodService.cs" />
+    <Compile Include="UserAuth\RoleMethodService.cs" />
+    <Compile Include="UserAuth\RoleService.cs" />
+    <Compile Include="UserAuth\UserRoleService.cs" />
+    <Compile Include="UserAuth\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tras.Core\Tras.Core.csproj">
+      <Project>{4d1c7910-199c-48c3-b3c2-d08243826629}</Project>
+      <Name>Tras.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tras.Data\Tras.Data.csproj">
+      <Project>{eb1ff124-5b67-4a7b-a766-139ccfc2a66b}</Project>
+      <Name>Tras.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

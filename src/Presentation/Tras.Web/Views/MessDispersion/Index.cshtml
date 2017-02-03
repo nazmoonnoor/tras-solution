@@ -1,0 +1,55 @@
+﻿@model Tras.Web.Models.Process.MessDispersion.MessDispersionUIViewModel
+@{
+    ViewBag.Title = "Mess Dispersion";
+}
+@section scripts{
+    @Scripts.Render("~/bundles/mess-dispersion")
+}
+
+@using (Html.BeginWapperContent())
+{
+    <div class="row">
+        <div class="col-md-12">
+            <form id="dispersion-form" action="#">
+                <div>
+                    <h3>Personnel</h3>
+                    <section>
+                        <div class="row">
+                            <div class="col-sm-3 b-r">
+                                @Html.EditorContainerFor(m => m.PersonalNo, htmlAttributes: new Dictionary<string, object>
+                                {
+                                    {"class", "input-sm"}
+                                })
+                                @Html.EditorContainerFor(m => m.MonthRangeKey, additionalViewData: new { selectList = ViewBag.MonthRange })
+                                @Html.EditorContainerFor(m => m.FromMonth)
+                                <div id="dvToMonth" class="hide">
+                                    @Html.EditorContainerFor(m => m.ToMonth)
+                                </div>
+                            </div>
+
+                            <div class="col-sm-9">
+                                <div id="person-detail"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <h3>Package Info</h3>
+                    <section>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="package-detail"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </form>
+            <div id="dvInvoice" class="hide">
+                @Html.HiddenFor(m => m.RecordId)
+                <button id="btnPrintInvoice" type="button" class="btn btn-success btn-sm">
+                    <i class="fa fa-print"></i>&nbsp;Print Invoice
+                </button>
+                <div id="pdfView">
+                </div>
+            </div>
+        </div>
+    </div>
+}

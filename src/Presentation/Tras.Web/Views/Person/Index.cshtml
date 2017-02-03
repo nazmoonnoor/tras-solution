@@ -1,0 +1,45 @@
+﻿@using Tras.Web.Framework.Infrastructure
+@model IEnumerable<Tras.Web.Models.Employee.PersonViewModel>
+
+@{
+    var actionLinks = new List<LinkStructure>
+    {
+        new LinkStructure("Create", "Person", "<i class=\"fa fa-plus-circle\"></i> Add Profile", null, new Dictionary<string, object>
+        {
+            {"class", "btn btn-primary btn-sm"}
+        })
+    };
+}
+
+@Html.Partial("_TopComponent", viewData: new ViewDataDictionary
+{
+    {"PageInfo", ViewBag.PageInfo},
+    {"ActionLinks", actionLinks}
+})
+
+        <div id="profile-list">
+            @Html.Partial("_ProfileList", Model)
+        </div>
+        <ul id="profile-pagination" class="pagination"></ul>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/twbsPagination")
+    @Scripts.Render("~/bundles/person")
+    <script type="text/javascript">
+        $('#profile-pagination').twbsPagination({
+            totalPages: @ViewBag.PageCount,
+            visiblePages: 10,
+            onPageClick: function (event, page) {
+                console.log(event);
+                console.log(page);
+                $.ajax({
+                    url: "/Profiles/LoadProfiles/" + page,
+                    success: function (response) {
+                        $('#profile-list').html(response);
+                    }
+                });
+            }
+        });
+    </script>
+}

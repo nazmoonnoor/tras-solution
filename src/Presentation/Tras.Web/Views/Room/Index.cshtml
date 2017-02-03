@@ -1,0 +1,44 @@
+﻿@using Tras.Core.Domain.Common
+@model IEnumerable<Tras.Web.Models.Residence.RoomViewModel>
+
+    @{
+        var pageAction = (AppConstant.PageAction)ViewBag.PageAction;
+    }
+    @Html.Partial("_TopComponent", viewData: new ViewDataDictionary()
+    {
+         {"PageInfo", ViewBag.PageInfo}
+    })
+
+    <p class="pull-right">
+        @Html.ActionLink("Create New", "Create",null,new{@class="btn btn-success"})
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MessId)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MessName)
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.RoomId  }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RoomId }) |
+                    @Html.ActionLink("Delete", "Delete", new { @class = "btn btn-danger delete", data_itemid=item.RoomId })
+                </td>
+            </tr>
+        }
+
+    </table>

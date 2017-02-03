@@ -1,0 +1,130 @@
+﻿@using Tras.Core.Domain.Common
+@using Tras.Web.Framework.Infrastructure
+@model IEnumerable<Tras.Web.Models.Configuration.LookupViewModel>
+
+@{
+    var actionLinks = new List<LinkStructure>
+    {
+        new LinkStructure("Create", "Lookup", "<i class=\"fa fa-plus-circle\"></i> Add Lookup", null, new Dictionary<string, object>
+        {
+            {"class", "btn btn-primary btn-sm saveModal"}
+        })
+    };
+}
+
+@section styles{
+    @Styles.Render("~/Content/fancybox")
+}
+
+@Html.Partial("_TopComponent", viewData: new ViewDataDictionary()
+{
+    {"PageInfo", ViewBag.PageInfo},
+    {"ActionLinks", actionLinks}
+})
+
+@using (Html.BeginWapperContent())
+{
+    <table id="datatable" class="table table-striped table-bordered table-hover dataTable dtr-inline" data-page-length='@AppConstant.PageSize'>
+        <thead>
+            <tr>
+                <th class="hide">
+                    @Html.DisplayNameFor(model => model.LookupId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LookupType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Key)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Value)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="hide">
+                        @Html.DisplayFor(modelItem => item.LookupId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LookupType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Key)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Value)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order)
+                    </td>
+                    <td class="btn-action">
+                        @Html.ActionLinkHtml("Edit", "Lookup", "<i class='ui-tooltip fa fa-pencil fa-2i'></i>", new { id = item.LookupId }, new Dictionary<string, object>
+                        {
+                            {"class", "saveModal"}
+                        })
+                        @Html.ActionLinkHtml("Details", "Lookup", "<i class='ui-tooltip fa fa-list-ul fa-2i'></i>", new { id = item.LookupId })
+                        <span class="btn-row-del" data-itemid="@item.LookupId"><i class="ui-tooltip fa fa-trash-o fa-2i"></i></span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="hide">
+                    @Html.DisplayNameFor(model => model.LookupId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LookupType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Key)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Value)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/fancybox")
+    @Scripts.Render("~/bundles/lookup");
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var oTable = $('#datatable').dataTable({
+                "pageLength": @AppConstant.PageSize,
+                "order": [[1, "asc"]],
+                columnDefs: [
+                {
+                    targets: [6],
+                    width: 100,
+                    sortable: false
+                }]
+            });
+        });
+    </script>
+}

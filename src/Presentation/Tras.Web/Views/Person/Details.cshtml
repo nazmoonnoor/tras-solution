@@ -1,0 +1,153 @@
+﻿@model Tras.Web.Models.Employee.PersonViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonTypeKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonTypeKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiningDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartmentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartmentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RankId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RankId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stdp1No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stdp1No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stdp1NoDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stdp1NoDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyTypeKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyTypeKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenderKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatusKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaritalStatusKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobTypeKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobTypeKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

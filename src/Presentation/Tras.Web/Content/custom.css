@@ -1,0 +1,32 @@
+.page-heading {
+    padding-bottom: 3px;
+}
+.page-heading h2 {
+    margin-top: 10px;
+}
+.breadcrumb {
+    font-size: 16px;
+    padding: 12px 0;
+}
+.breadcrumb li:last-child a {
+    color: #999;
+    pointer-events: none;
+} 
+.bringTop {
+    position: relative;
+    top: -3px;
+}
+.top2px {
+    position: relative;
+    top: 2px;
+}
+.totalCount {
+    font-size: 20px;
+    position: relative;
+    top: -1px;
+}
+.colomn-checkbox label {
+    margin-bottom: 5px;
+    width: 32%;
+}
+

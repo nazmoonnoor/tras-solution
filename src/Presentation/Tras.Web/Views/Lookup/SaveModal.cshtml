@@ -1,0 +1,54 @@
+﻿@using Tras.Core.Domain.Common
+@model Tras.Web.Models.Configuration.LookupViewModel
+
+
+@{
+    var action = ViewBag.PageAction == AppConstant.PageAction.Edit ? "Lookup/EditLookup" : "Lookup/CreateLookup";
+}
+<div class="modal-dialog">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                @*@using (Html.BeginForm(action, "Lookup", FormMethod.Post,
+                        new AjaxOptions
+                        {
+                            InsertionMode = InsertionMode.Replace,
+                            HttpMethod = "POST"
+                        }))
+                    {
+
+                    }*@
+
+                <form action="@action" method="POST" id="lookup-form">
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.HiddenFor(m => m.LookupId)
+                    <div class="row">
+                        <div class="col-sm-6 b-r">
+                            @Html.EditorContainerFor(m => m.LookupType, additionalViewData: new { selectList = ViewBag.LookupTypes })
+                            @Html.EditorContainerFor(m => m.Key)
+                            @Html.EditorContainerFor(m => m.Value)
+                            @Html.EditorContainerFor(m => m.Order)
+                        </div>
+                        <div class="col-sm-6">
+                            @Html.EditorContainerFor(m => m.Description)
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 top-buffer">
+                        <button type="button" class="btn btn-white btn-sm cancel">Cancel</button>&nbsp;&nbsp;
+                        <button id="lookupSave" type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-check"></i>&nbsp;Save changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bb-alert alert" style="display:none;">
+    <span></span>
+</div>

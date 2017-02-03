@@ -1,0 +1,136 @@
+﻿@using Tras.Core.Domain.Common
+
+@model Tras.Web.Models.Configuration.LookupViewModel
+@{
+    var pageAction = (AppConstant.PageAction)ViewBag.PageAction;
+    var actionLinks = new List<Tras.Web.Framework.Infrastructure.LinkStructure>
+    {
+        new Tras.Web.Framework.Infrastructure.LinkStructure("Add Lookup", "Create", "Lookup", null, new {@class = "btn btn-primary"})
+    };
+}
+
+@Html.Partial("_TopComponent", viewData: new ViewDataDictionary()
+{
+    {"PageInfo", ViewBag.PageInfo},
+    {"ActionLinks", actionLinks}
+})
+@using (Html.BeginWapperContent("Lookup Table", "General drop down data", 12))
+{
+    <table id="datatable" class="table table-striped table-bordered table-hover dataTable dtr-inline" data-page-length='@AppConstant.PageSize'>
+        <thead>
+            <tr>
+                <th class="hide">
+                    @Html.DisplayNameFor(model => model.LookupId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LookupType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Key)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Value)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order)
+                </th>
+                <th class="action">
+
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+            <tr>
+                <th class="hide">
+                    @Html.DisplayNameFor(model => model.LookupId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LookupType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Key)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Value)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order)
+                </th>
+                <th class="action">
+
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+}
+@section scripts{
+    @Scripts.Render("~/bundles/lookup");
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".ibox-content").css("visibility", "hidden");
+            var oTable = $('#datatable').DataTable({
+                pageLength: @AppConstant.PageSize,
+                serverSide: true,
+                ajax: {
+                    "type": "POST",
+                    "url": '/lookup/load',
+                    "contentType": 'application/json; charset=utf-8',
+                    'data': function (data) {
+                        return data = JSON.stringify(data);
+                    },
+                    'complete': function () {
+                        $(".ibox-content").css("visibility", "visible");
+                    }
+                },
+                scrollX: false,
+                scrollCollapse: true,
+                scroller: {
+                    loadingIndicator: false
+                },
+                processing: false,
+                paging: true,
+                deferRender: true,
+                columns: [
+                    { data: "@Html.NameFor(m => m.LookupId)", sortable: false },
+                    { data: "@Html.NameFor(m => m.LookupType)" },
+                    { data: "@Html.NameFor(m => m.Key)", sortable: false },
+                    { data: "@Html.NameFor(m => m.Value)", sortable: false },
+                    { data: "@Html.NameFor(m => m.Description)", sortable: false },
+                    { data: "@Html.NameFor(m => m.Order)", sortable: false },
+                    { data: "", sortable: false }
+                ],
+                columnDefs: [
+                    {
+                        targets: [6],
+                        "class": "action btn-action",
+                        render: function (data, type, row) {
+                            var editUrl = "@Url.Action("Edit", "Lookup")" + "/" + row.LookupId;
+
+                            return $("<span/>").append($('<a/>', {
+                                'href': editUrl,
+                                'alt': 'Edit',
+                                'html': '<i class="ui-tooltip fa fa-pencil fa-2i"></i>'
+                            })).append("&nbsp;&nbsp;").append($("<span/>", {
+                                'class': 'btn-row-del',
+                                'html': '<i class="ui-tooltip fa fa-trash-o fa-2i"></i>'
+                            })).on('click', 'delete(' + row.LookupId + ')').html();
+                        }
+                    },
+                    {
+                        "class": "hide", "targets": [0]
+                    }
+                ],
+                order: [1, "asc"],
+                width: "90%"
+            });
+        });
+</script>
+}

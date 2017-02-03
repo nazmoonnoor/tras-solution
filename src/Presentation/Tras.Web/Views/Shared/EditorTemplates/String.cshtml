@@ -1,0 +1,27 @@
+﻿@model String
+
+@{
+    var classColMd = ViewData.ModelMetadata.AdditionalValues.ContainsKey("input-size") ? ViewData.ModelMetadata.AdditionalValues["input-size"] : 12;
+    
+    var htmlAttributes = (IDictionary<string, object>)ViewData["htmlAttributes"];
+    htmlAttributes["class"] = "form-control " + (htmlAttributes.Keys.Contains("class") ? htmlAttributes["class"] : "");
+    htmlAttributes["placeholder"] = ViewData.ModelMetadata.Watermark;
+
+    string label = string.Format("{0}{1}", ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.IsRequired ? " *" : "");
+}
+
+<div class="form-group col-md-@classColMd">
+    @Html.Label(label, new
+    {
+        @for = ViewData.ModelMetadata.PropertyName,
+        @class = "pad-right"
+    })
+    @Html.ValidationMessage(ViewData.ModelMetadata.PropertyName, "", new
+    {
+        @class = "text-danger"
+    })
+
+    @Html.TextBox(ViewData.ModelMetadata.PropertyName, 
+        Model.IsEmpty() ? string.Empty : ViewData.TemplateInfo.FormattedModelValue, htmlAttributes)
+</div>
+

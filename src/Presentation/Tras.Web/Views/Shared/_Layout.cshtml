@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/jqgrid")*@
+    @Styles.Render("~/Content/datatables")
+    @RenderSection("styles", required: false)
+</head>
+<body class="steel-blue">
+    <div class="bb-alert alert alert-info" style="display:none;">
+        <span></span>
+    </div>
+    <header class="sb-page-header">
+        <div class="container-full">
+            <h1>TechHouse Ration Management System</h1>
+            <p>Admin Wing</p>
+        </div>
+    </header>
+    @Html.Partial("_HorizontalMenu")
+    <div class="container-full body-content">
+        <div class="col-md-12">
+            @RenderBody()
+        </div>
+    </div>
+    <footer>
+        <div class="container-full">
+            <hr />
+            <div class="footer"></div>
+            <p class="text-muted credit">
+                Powered by <a href="http://www.techhouse.com" target="_blank">TechHouse</a>
+            </p>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqgrid")
+    @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/tras")
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

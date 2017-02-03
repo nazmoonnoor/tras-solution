@@ -1,0 +1,9 @@
+1 maintype 
+2.rationtype
+3.rationitemCategory
+4.rationitem
+5.rationpackage
+6.rationPackageItems
+6.rationScale
+
+dc7c3d7a

@@ -1,0 +1,60 @@
+﻿@using Tras.Core.Helpers
+@model IEnumerable<Tras.Web.Models.Employee.PersonViewModel>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        @foreach (var profile in Model)
+        {
+            <div class="col-lg-6" id="profile-@profile.PersonId">
+                <div class="contact-box">
+                    <a href="@Url.Action("Details", "Person", new {id = profile.PersonId})">
+                        <div class="col-sm-4">
+                            <div class="text-center">
+                                <img alt="image" class="img-circle m-t-xs img-responsive" src="~/Content/images/blank_profile_male.jpg">
+                                <div class="m-t-xs font-bold"><span class=" label label-primary">@profile.RankName</span></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="m-b-md">
+                                <h3>
+                                    <strong>@profile.FullName</strong>
+                                </h3>
+                            </div>
+                            <p>
+                                @if (@profile.GenderValue.Equals("Male"))
+                                {
+                                    <i class="fa fa-male fa-2i"></i>
+                                }
+                                else
+                                {
+                                    <i class="fa fa-female fa-2i"></i>
+                                }
+                                <span class="label label-danger">@profile.PersonalNo</span>
+                                <span class="label label-default">@profile.MaritalStatusValue</span>
+                            </p>
+                            <p>
+                                <i class="fa fa-calendar fa-2i"></i>
+                                <span class="label label-default">@profile.JoiningDate.ToDateString()</span>
+                            </p>
+                            <address>
+                                <strong>@profile.UnitName</strong><br>
+                                @profile.JobTypeValue&nbsp;@profile.CategoryValue<br>
+                                <abbr>Department:</abbr> @profile.DepartmentName<br>
+                                <abbr>Director:</abbr> @profile.DirectorName
+                            </address>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                    <div class="dv-action pull-right">
+                        @Html.ActionLink("Edit profile", "Edit", "Person", new RouteValueDictionary(new { id = @profile.PersonId }), new Dictionary<string, object>
+                        {
+                            {"class", "btn btn-white btn-xs"}
+                        })
+                        <button type="button" class="btn btn-white btn-xs btn-delete" data-itemid="@profile.PersonId" style="color: #ed5565">Delete</button>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@using Tras.Web.Framework.Infrastructure
+@model Tras.Web.Models.Employee.PersonViewModel
+
+@{
+    var actionLinks = new List<LinkStructure>
+    {
+        new LinkStructure("Index", "Person", "<i class=\"fa fa-list\"></i> Profiles", null, new Dictionary<string, object>
+        {
+            {"class", "btn btn-primary btn-sm"}
+        })
+    };
+}
+@section scripts{
+    @Scripts.Render("~/bundles/file-upload")
+    @Scripts.Render("~/bundles/person")
+}
+@Html.Partial("_TopComponent", viewData: new ViewDataDictionary
+{
+    {"PageInfo", ViewBag.PageInfo},
+    {"ActionLinks", actionLinks}
+})
+@using (Html.BeginWapperContent())
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel blank-panel">
+                <div class="panel-heading">
+                    <div class="panel-title m-b-md hide">
+                        <h4></h4>
+                    </div>
+                    <div class="panel-options">
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="active"><a role="tab" data-toggle="tab" href="#profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                            <li><a role="tab" data-toggle="tab" href="#family"><span class="glyphicon glyphicon-home"></span> Family</a></li>
+                            <li><a role="tab" data-toggle="tab" href="#assignpackage"><span class="glyphicon glyphicon-home"></span> Package</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div id="profile" class="tab-pane fade active in">
+                            @Html.Partial("_SaveProfile", Model)
+                        </div>
+
+                        <div id="family" class="tab-pane fade">
+                            @Html.Partial("_SaveFamily", Model.FamilyInfoViewModel)
+                        </div>
+
+                        <div id="assignpackage" class="tab-pane fade">
+                            @Html.Partial("_SavePackage", Model.PersonPackageViewModel)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

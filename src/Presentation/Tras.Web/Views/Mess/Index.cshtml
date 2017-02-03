@@ -1,0 +1,38 @@
+﻿@using Tras.Core.Domain.Common
+@model IEnumerable<Tras.Web.Models.Residence.MessViewModel>
+
+    @{
+        var pageAction = (AppConstant.PageAction)ViewBag.PageAction;
+    }
+    @Html.Partial("_TopComponent", viewData: new ViewDataDictionary()
+    {
+         {"PageInfo", ViewBag.PageInfo}
+    })
+
+    <p class="pull-right">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.MessName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MessName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.MessId  }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MessId }) |
+                    @Html.ActionLink("Delete", "Delete", new { @class = "btn btn-danger delete", data_itemid = item.MessId })
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -1,0 +1,29 @@
+﻿@using Tras.Core.Domain.Common
+@model Tras.Web.Models.Employee.DepartmentViewModel
+
+@{
+    var pageAction = (AppConstant.PageAction)ViewBag.PageAction;
+}
+@Html.Partial("_TopComponent", viewData: new ViewDataDictionary
+{
+    {"PageInfo", ViewBag.PageInfo}
+})
+<div class="col-md-12">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-8 no-left-pad">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(m => m.DepartmentId)
+
+            @Html.EditorContainerFor(m => m.Name)
+
+            <div class="col-md-12 top-buffer">
+                <input type="submit" value="Save" class="btn btn-primary" />&nbsp;&nbsp;
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+            </div>
+
+        </div>
+    }
+</div>

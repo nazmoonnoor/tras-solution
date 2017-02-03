@@ -1,0 +1,29 @@
+﻿@model string
+@{
+    var classColMd = ViewData.ModelMetadata.AdditionalValues.ContainsKey("input-size") ? ViewData.ModelMetadata.AdditionalValues["input-size"] : 12;
+
+    var htmlAttributes = (IDictionary<string, object>)ViewData["htmlAttributes"];
+    htmlAttributes["class"] = "form-control " + (htmlAttributes.Keys.Contains("class") ? htmlAttributes["class"] : "");
+    htmlAttributes.Add("placeholder", "mm-yyyy");
+
+    string label = string.Format("{0}{1}", ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.IsRequired ? " *" : "");
+}
+
+<div class="form-group col-md-@classColMd">
+    @Html.Label(label, new
+    {
+        @for = ViewData.ModelMetadata.PropertyName,
+        @class = "pad-right"
+    })
+    @Html.ValidationMessage(ViewData.ModelMetadata.PropertyName, "", new
+    {
+        @class = "text-danger"
+    })
+    <div class="input-group date bootstrap-datepicker" data-date="02-2012" data-date-format="mm-yyyy" id="dv+@ViewData.ModelMetadata.PropertyName">
+        @Html.TextBox(ViewData.ModelMetadata.PropertyName,
+              Model.IsEmpty() ? string.Empty : ViewData.TemplateInfo.FormattedModelValue, htmlAttributes)
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+</div>

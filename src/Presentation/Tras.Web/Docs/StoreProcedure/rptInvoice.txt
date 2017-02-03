@@ -1,0 +1,27 @@
+﻿CREATE PROCEDURE [dbo].[rptInvoice]
+@QueryOption int,
+@PersonId int,
+@InvoiceNo varchar(50)
+AS
+BEGIN
+	IF @QueryOption = 1
+	Begin
+	Select p.PersonId,p.PersonalNo,p.FullName,r.Name AS RankName,
+	d.Name As DirectorateName,c.Value As Category,ptype.Value As PeopleType,
+	fi.Own,fi.Spouse,fi.KidsMinor,fi.KidsHalf,fi.KidsAdult,
+	rdr.InvoiceNo,rdr.InvoiceDate,rdr.DeliveredDate, 
+	rdir.Price * rdir.Quantity As Price,rdir.Quantity,ri.ItemName
+	From Person p INNER JOIN
+	Ranks r ON p.RankId = r.RankId INNER JOIN
+	Directors d ON p.DirectorId = d.DirectorId INNER JOIN
+	Sys_Lookup c ON p.CategoryKey = c.[Key] AND c.LookupType='CATEGORY' INNER JOIN
+	Sys_Lookup ptype ON p.CategoryKey = ptype.[Key] AND ptype.LookupType='PERSON_TYPE' INNER JOIN
+	FamilyInfos fi ON p.PersonId = fi.PersonId INNER JOIN
+	RationDispersionRecord rdr on p.PersonId = rdr.PersonId INNER JOIN
+	RationDispersionItemRecord rdir ON rdr.RationDispersionRecordId = rdir.RationDispersionId INNER JOIN
+	RationItems ri ON rdir.ItemId = ri.ItemId
+	
+	WHERE p.PersonId = @PersonId AND rdr.InvoiceNo = @InvoiceNo
+	End
+END
+GO

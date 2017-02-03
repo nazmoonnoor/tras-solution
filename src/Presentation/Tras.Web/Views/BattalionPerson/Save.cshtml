@@ -1,0 +1,47 @@
+﻿@using Tras.Web.Framework.Infrastructure
+@model Tras.Web.Models.Employee.BattalionProfileViewModel
+
+@{
+    var actionLinks = new List<LinkStructure>
+    {
+        new LinkStructure("Index", "BattalionPerson", "<i class=\"fa fa-list\"></i> Profiles", null, new Dictionary<string, object>
+        {
+            {"class", "btn btn-primary btn-sm"}
+        })
+    };
+}
+@section scripts{
+    @Scripts.Render("~/bundles/battalionperson")
+}
+@Html.Partial("_TopComponent", viewData: new ViewDataDictionary
+{
+    {"PageInfo", ViewBag.PageInfo},
+    {"ActionLinks", actionLinks}
+})
+@using (Html.BeginWapperContent())
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel blank-panel">
+                <div class="panel-heading">
+                    <div class="panel-title m-b-md hide">
+                        <h4></h4>
+                    </div>
+                    <div class="panel-options">
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="active"><a role="tab" data-toggle="tab" href="#profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div id="profile" class="tab-pane fade active in">
+                            @Html.Partial("_SaveProfile", Model)
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+        </div>
+    </div>
+}

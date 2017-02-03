@@ -1,0 +1,113 @@
+﻿@using Tras.Core.Domain.Common
+@model Tras.Web.Models.Ration.PackageDetailsViewModel
+
+@{
+    var pageAction = (AppConstant.PageAction) ViewBag.PageAction;
+}
+
+@Html.Partial("_TopComponent", viewData: new ViewDataDictionary()
+{
+    {"PageInfo", ViewBag.PageInfo},
+  
+})
+
+
+@using (Html.BeginWapperContent())
+{
+    <div>
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <h4>Package Details</h4>
+
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <span class="label">@Html.DisplayNameFor(model => model.PackageCode)</span>
+                            @Html.DisplayFor(model => model.PackageCode)
+                        </td>
+                        <td>
+                            <span class="label">@Html.DisplayNameFor(model => model.HeadName)</span>
+                            @Html.DisplayFor(model => model.HeadName)
+                        </td>
+                        <td>
+                            <span class="label">@Html.DisplayNameFor(model => model.SubHeadName)</span>
+                            @Html.DisplayFor(model => model.SubHeadName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="label">@Html.DisplayNameFor(model => model.LastUpDate)</span>
+                            @Html.DisplayFor(model => model.LastUpDate)
+                        </td>
+                        <td>
+                            <span class="label">@Html.DisplayNameFor(model => model.LastUpdateUserName)</span>
+                            @Html.DisplayFor(model => model.LastUpdateUserName)
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                @{
+                    if (Model.PackageItems.Count > 0)
+                    {
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Food Items </h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+
+
+                                </div>
+                            </div>
+                            <div class="ibox-content" style="display: block;">
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Applicable for batman</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach (var foodItem in Model.PackageItems)
+                                    {
+                                        <tr>
+                                            <td><span class="label label-primary">@Html.DisplayFor(modelItem => foodItem.RationItem.ItemName)</span></td>
+                                            <td>@Html.DisplayFor(modelItem => foodItem.RationItem.Category.CategoryName)</td>
+                                            <td>@Html.DisplayFor(modelItem => foodItem.Price)</td>
+                                            <td>@Html.DisplayFor(modelItem => foodItem.IsApplicableForBatman)</td>
+                                        </tr>
+                                    }
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger alert-dismissable">
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                            Any food item is not added yet. <a class="alert-link" href="#">Add item</a>.
+                        </div>
+
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+    
+    <p>
+
+        @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-default"})
+    </p>
+}

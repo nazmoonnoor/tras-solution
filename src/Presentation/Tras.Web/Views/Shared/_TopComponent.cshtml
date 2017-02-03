@@ -1,0 +1,42 @@
+﻿@using Tras.Core.Domain.Common
+@using Tras.Web.Framework.Infrastructure
+@{
+    var pageInfo = ViewData["PageInfo"] as PageInfo;
+    var actionLinks = ViewData["ActionLinks"] as List<LinkStructure>;
+    ViewBag.Title = (pageInfo != null) ? pageInfo.Title : string.Empty;
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-4">
+        <h2>@pageInfo.PageTitle</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li>
+                <a>@pageInfo.PageTitle</a>
+            </li>
+            <li class="active">
+                <strong>@pageInfo.PageAction</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-8">
+        <div class="title-action">
+            @if (actionLinks != null && actionLinks.Count > 0)
+            {
+                foreach (var link in actionLinks)
+                {
+                    if (string.IsNullOrWhiteSpace(link.InnerHtml))
+                    {
+                        @Html.ActionLink(link.LinkText, link.ActionName, link.ControllerName, link.RouteValue, link.HtmlAttributesObject)
+                    }
+                    else
+                    {
+                        @Html.ActionLinkHtml(link.ActionName, link.ControllerName, link.InnerHtml, link.RouteValue, link.HtmlAttributes)
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

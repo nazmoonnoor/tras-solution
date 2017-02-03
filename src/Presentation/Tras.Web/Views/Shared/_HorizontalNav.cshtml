@@ -1,0 +1,67 @@
+﻿<div class="row border-bottom">
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            @*<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <i class="fa fa-reorder"></i>
+            </button>
+            <a href="#" class="navbar-brand">Inspinia</a>*@
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a aria-expanded="false" role="button" href="@Url.Action("Index", "Home")"><i class="fa fa-home"></i>Home</a>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i>Process <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("Dispersion", "Ration")"><i class="fa fa-clipboard"></i> Dispersion </a></li>
+                        <li><a href="@Url.Action("Dispersion", "MessRation")"><i class="fa fa-clipboard"></i> Mess Dispersion </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i>Profiles <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "Person")"><i class="fa fa-user"></i> General Profiles </a></li>
+                        <li><a href="@Url.Action("Index", "BattalionPerson")"><i class="fa fa-user"></i> Battalion Profiles </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i> HR Settings <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "Mess")">Mess</a></li>
+                        <li><a href="@Url.Action("Index", "Room")">Rooms</a></li>
+                        <li><a href="@Url.Action("Index", "Rank")">Ranks</a></li>
+                        <li><a href="@Url.Action("Index", "Department")">Departments</a></li>
+                        <li><a href="@Url.Action("Index", "Unit")">Units</a></li>
+                        <li><a href="@Url.Action("Index", "Director")">Directors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i> Settings <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "RationHead")">Ration Heads</a></li>
+                        <li><a href="@Url.Action("Index", "RationSubHead")">Sub Heads</a></li>
+                        <li><a href="@Url.Action("Index", "RationItemCategory")">Food Categories</a></li>
+                        <li><a href="@Url.Action("Index", "RationItem")">Food Items</a></li>
+                        <li><a href="@Url.Action("Index", "Package")">Packages</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bolt"></i> Configurations <span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "Lookup")">Lookup Config</a></li>
+                        <li><a href="">User Permission</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <a href="login.html">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

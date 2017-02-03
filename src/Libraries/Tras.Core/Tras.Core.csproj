@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D1C7910-199C-48C3-B3C2-D08243826629}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tras.Core</RootNamespace>
+    <AssemblyName>Tras.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Domain\Common\Active.cs" />
+    <Compile Include="Domain\Common\CacheManager.cs" />
+    <Compile Include="Domain\Common\AppConstant.cs" />
+    <Compile Include="Domain\Common\ICacheManager.cs" />
+    <Compile Include="Domain\Common\PageInfo.cs" />
+    <Compile Include="Domain\Configuration\Setting.cs" />
+    <Compile Include="Domain\Configuration\Lookup.cs" />
+    <Compile Include="Domain\Distribution\MessDispersionItemRecord.cs" />
+    <Compile Include="Domain\Distribution\MessDispersionRecord.cs" />
+    <Compile Include="Domain\Employee\ChildrenInfo.cs" />
+    <Compile Include="Domain\Employee\EducationalInfo.cs" />
+    <Compile Include="Domain\Employee\Nok.cs" />
+    <Compile Include="Domain\Employee\ParentsInfo.cs" />
+    <Compile Include="Domain\Employee\Person.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Domain\Employee\Punishment.cs" />
+    <Compile Include="Domain\Employee\SpouseInfo.cs" />
+    <Compile Include="Domain\Employee\Station.cs" />
+    <Compile Include="Domain\Employee\Unit.cs" />
+    <Compile Include="Domain\Employee\Department.cs" />
+    <Compile Include="Domain\Employee\Director.cs" />
+    <Compile Include="Domain\Employee\FamilyInfo.cs" />
+    <Compile Include="Domain\Employee\Rank.cs" />
+    <Compile Include="Domain\Ration\PersonPackage.cs" />
+    <Compile Include="Domain\Ration\RationItem.cs" />
+    <Compile Include="Domain\Ration\RationItemCategory.cs" />
+    <Compile Include="Domain\Ration\RationHead.cs" />
+    <Compile Include="Domain\Ration\Package.cs" />
+    <Compile Include="Domain\Ration\PackageItem.cs" />
+    <Compile Include="Domain\Ration\RationSubHead.cs" />
+    <Compile Include="Domain\Report\InvoiceMemo.cs" />
+    <Compile Include="Domain\Residence\Allotment.cs" />
+    <Compile Include="Domain\Residence\Mess.cs" />
+    <Compile Include="Domain\Residence\Room.cs" />
+    <Compile Include="Domain\Distribution\DispersionRecord.cs" />
+    <Compile Include="Domain\Distribution\DispersionItemRecord.cs" />
+    <Compile Include="Domain\Store\DemandRecord.cs" />
+    <Compile Include="Domain\Store\DemandItemRecord.cs" />
+    <Compile Include="Domain\Store\StockItemRecord.cs" />
+    <Compile Include="Domain\Store\StockRecord.cs" />
+    <Compile Include="Domain\UserAuth\Method.cs" />
+    <Compile Include="Domain\UserAuth\Role.cs" />
+    <Compile Include="Domain\UserAuth\RoleMethod.cs" />
+    <Compile Include="Domain\UserAuth\User.cs" />
+    <Compile Include="Domain\UserAuth\UserRole.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Helpers\SimpleTypeExtensions.cs" />
+    <Compile Include="PagedList\BasePagedList.cs" />
+    <Compile Include="PagedList\IPagedList.cs" />
+    <Compile Include="PagedList\PagedList.cs" />
+    <Compile Include="PagedList\PagedListExtensions.cs" />
+    <Compile Include="PagedList\PagedListMetaData.cs" />
+    <Compile Include="PagedList\StaticPagedList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

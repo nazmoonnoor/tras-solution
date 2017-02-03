@@ -1,0 +1,70 @@
+﻿/*
+    Ration dispersion page
+*/
+#person-detail .wrapper-content {
+    padding: 0 10px 40px;
+}
+#person-detail .wrapper-content .m-b-md h2{
+    padding-bottom: 20px;
+}
+#person-detail .no-profile {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+    font-size: 20px;
+}
+#package-detail .wrapper-content {
+    padding: 0px 10px 10px;
+}
+#package-detail .wrapper-content .ibox-content{
+    padding: 15px 0;
+}
+#package-detail .wrapper-content .ibox-content .col-lg-12{
+    padding: 0;
+}
+#package-detail .wrapper-content .ibox-content .col-lg-12 .col-lg-12,
+#package-detail .wrapper-content .ibox-content .col-lg-8{
+    padding-left: 0;
+}
+/*
+    Person list page
+*/
+.contact-box h3 b, .contact-box h3 strong {
+    font-weight: 400;
+}
+.contact-box b, .contact-box strong {
+    font-weight: 600;
+}
+.contact-box address {
+    font-size:0.9em;
+}
+
+/*
+    dispersion steps
+*/
+@media (min-height: 767px) {
+    #dispersion-form .wizard > .content {
+        min-height: 590px;
+        background: inherit;
+    }
+}
+
+@media (max-height: 768px) {
+    #dispersion-form .wizard > .content {
+        min-height: 490px;
+        background: inherit;
+    }
+}
+
+#dispersion-form .wizard > .content > .body {
+    padding: 10px 3px;
+}
+
+#dispersion-form .wizard > .steps > ul > li {
+    width: 50%;
+}
+
+
+.datepicker .switch {
+    display: table-cell;
+}

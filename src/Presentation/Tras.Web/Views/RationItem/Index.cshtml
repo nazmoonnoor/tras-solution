@@ -1,0 +1,79 @@
+﻿@using Tras.Core.Domain.Common
+@using Tras.Web.Framework.Infrastructure
+@model IEnumerable<Tras.Web.Models.Ration.RationItemViewModel>
+
+@{
+    var pageAction = (AppConstant.PageAction)ViewBag.PageAction;
+    var actionLinks = new List<LinkStructure>
+    {
+        new LinkStructure("Create", "RationItem", "<i class=\"fa fa-plus-circle\"></i> Add Item", null, new Dictionary<string, object>
+        {
+            {"class", "btn btn-primary btn-sm"}
+        })
+    };
+}
+
+@Html.Partial("_TopComponent", viewData: new ViewDataDictionary
+{
+    {"PageInfo",ViewBag.PageInfo},
+    {"ActionLinks", actionLinks}
+})
+
+@using (Html.BeginWapperContent())
+{
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryCategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoldierQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeneralQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HalfQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinorQty)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryCategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoldierQty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GeneralQty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HalfQty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinorQty)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = item.ItemId}) |
+                    @Html.ActionLink("Delete", "Delete", new {@class = "btn btn-danger delete", data_itemid = item.ItemId})
+                </td>
+            </tr>
+        }
+
+    </table>
+}

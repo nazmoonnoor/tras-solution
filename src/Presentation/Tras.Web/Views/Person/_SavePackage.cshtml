@@ -1,0 +1,31 @@
+﻿@using Tras.Core.Domain.Common
+@model Tras.Web.Models.Employee.PersonPackageViewModel
+@{
+    var action = ViewBag.PageAction == AppConstant.PageAction.Edit ? "editassignpackage" : "createassignpackage";
+}
+<div class="col-md-10">
+    <form action="@action" method="POST" id="package-form">
+        @Html.AntiForgeryToken()
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(m => m.PersonId)
+
+        <div class="row">
+            <div class="col-sm-6">
+                @Html.EditorContainerFor(m => m.PackageId, additionalViewData: new { selectList = ViewBag.AssignPackage })
+                @Html.EditorContainerFor(m=>m.StartDate)
+                @Html.EditorContainerFor(m => m.EndDate)
+            </div>
+            @*<div class="col-sm-6">
+
+            </div>*@
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-check"></i>&nbsp;Save changes
+            </button>
+        </div>
+    </form>
+</div>

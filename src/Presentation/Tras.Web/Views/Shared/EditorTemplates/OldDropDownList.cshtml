@@ -1,0 +1,18 @@
+﻿@using Tras.Core.Domain.Common
+@model int?
+@{    
+    var col_md = ViewData["inputWidthType"] != null && (AppConstant.InputWidthType)ViewData["inputWidthType"] == AppConstant.InputWidthType.Large ? 12 : 6;
+    var class_col_md = string.Format("col-md-{0}", col_md);
+    
+    var selectlist = ViewData["selectlist"] ?? new List<SelectListItem>();
+}
+
+<div class="form-group @class_col_md">
+    @Html.LabelFor(model => model)
+    @Html.DropDownList(ViewData.ModelMetadata.PropertyName,
+            (IEnumerable<SelectListItem>)selectlist, new
+            {
+                @class = "form-control"
+            })
+    @Html.ValidationMessage(ViewData.ModelMetadata.PropertyName, "", new { @class = "text-danger" })
+</div>

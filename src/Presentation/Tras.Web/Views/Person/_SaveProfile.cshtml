@@ -1,0 +1,60 @@
+﻿@using Tras.Core.Domain.Common
+@model Tras.Web.Models.Employee.PersonViewModel
+
+@{
+    var action = ViewBag.PageAction == AppConstant.PageAction.Edit ? "EditProfile" : "CreateProfile";
+}
+<div class="col-md-2" id="profile-image">
+    <div class="default">
+        <img alt="Profile Image" class="img-circle m-t-xs img-responsive" src="">
+    </div>
+    <div class="hide">
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            @Html.Hidden("UploadedImagePath", string.Empty, new { id = "hf-uploaded-image-path" })
+            <input type="file" id="fu-my-simple-upload">
+            <p><a href="#" id="hl-start-upload">Start Upload</a></p>
+        }
+
+    </div>
+</div>
+<div class="col-md-10">
+    <form action="@action" method="POST" id="profile-form">
+        @Html.AntiForgeryToken()
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(m => m.PersonId)
+
+        <div class="row">
+            <div class="col-sm-6 b-r">
+                @Html.EditorContainerFor(m => m.FullName)
+                @Html.EditorContainerFor(m => m.PersonTypeKey, additionalViewData: new { selectList = ViewBag.PeopleTypes })
+                @Html.EditorContainerFor(m => m.DepartmentId, additionalViewData: new { selectList = ViewBag.Department })
+                @Html.EditorContainerFor(m => m.DirectorId, additionalViewData: new { selectList = ViewBag.Director })
+                @Html.EditorContainerFor(m => m.Stdp1No)
+                @Html.EditorContainerFor(m => m.GenderKey, additionalViewData: new { selectList = ViewBag.Gender })
+                @Html.EditorContainerFor(m => m.FamilyTypeKey, additionalViewData: new { selectList = ViewBag.FamilyType })
+                @Html.EditorContainerFor(m => m.UnitId, additionalViewData: new { selectList = ViewBag.Unit })
+
+
+            </div>
+            <div class="col-sm-6">
+                @Html.EditorContainerFor(m => m.PersonalNo)
+                @Html.EditorContainerFor(m => m.CategoryKey, additionalViewData: new { selectList = ViewBag.Category })
+                @Html.EditorContainerFor(m => m.RankId, additionalViewData: new { selectList = ViewBag.Rank })
+                @Html.EditorContainerFor(m => m.JoiningDate)
+                @Html.EditorContainerFor(m => m.Stdp1NoDate)
+                @Html.EditorContainerFor(m => m.MaritalStatusKey, additionalViewData: new { selectList = ViewBag.MaritalStatus })
+                @Html.EditorContainerFor(m => m.JobTypeKey, additionalViewData: new { selectList = ViewBag.JobType })
+                @Html.EditorContainerFor(m => m.MobileNo)
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-check"></i>&nbsp;Save changes
+            </button>
+        </div>
+    </form>
+</div>

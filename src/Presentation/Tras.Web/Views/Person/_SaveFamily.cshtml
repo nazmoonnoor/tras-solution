@@ -1,0 +1,33 @@
+﻿@using Tras.Core.Domain.Common
+@model Tras.Web.Models.Employee.FamilyInfoViewModel
+@{
+    var action = ViewBag.PageAction == AppConstant.PageAction.Edit ? "editfamily" : "createfamily";
+}
+<div class="col-md-10">
+    <form action="@action" method="POST" id="family-form">
+        @Html.AntiForgeryToken()
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(m => m.PersonId)
+
+        <div class="row">
+            <div class="col-sm-6 b-r">
+                @Html.EditorContainerFor(m => m.Own)
+                @Html.EditorContainerFor(m => m.Spouse)
+                @Html.EditorContainerFor(m => m.BatMan)
+            </div>
+            <div class="col-sm-6">
+                @Html.EditorContainerFor(m => m.KidsMinor)
+                @Html.EditorContainerFor(m => m.KidsHalf)
+                @Html.EditorContainerFor(m => m.KidsAdult)
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-check"></i>&nbsp;Save changes
+            </button>
+        </div>
+    </form>
+</div>

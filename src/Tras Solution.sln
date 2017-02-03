@@ -1,0 +1,103 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{09ED47F8-6CBF-463B-8BFA-50358F0B4871}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{4CDCAFD0-7F06-4213-829F-23C459DE44AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{3BBFCAD0-75DB-419C-B16C-8E109F499E14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tras.Core", "Libraries\Tras.Core\Tras.Core.csproj", "{4D1C7910-199C-48C3-B3C2-D08243826629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tras.Data", "Libraries\Tras.Data\Tras.Data.csproj", "{EB1FF124-5B67-4A7B-A766-139CCFC2A66B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tras.Services", "Libraries\Tras.Services\Tras.Services.csproj", "{711F2544-BC37-4316-A2B6-2B259BD8CB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tras.Console", "Presentation\Tras.Console\Tras.Console.csproj", "{9FE4976E-77C9-42C1-9EB7-8A64F2BCAEA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tras.Web.Framework", "Presentation\Tras.Web.Framework\Tras.Web.Framework.csproj", "{F4BF7A69-5E6A-4789-BD8D-CCF10B9ACD01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6FED1DD5-E25B-4FFF-A5BB-7D893C29FE0E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tras.Web", "Presentation\Tras.Web\Tras.Web.csproj", "{F1A1FF28-CE33-4FA3-835A-450F0992D964}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://techouseteam.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Libraries\\Tras.Core\\Tras.Core.csproj
+		SccProjectTopLevelParentUniqueName1 = Tras\u0020Solution.sln
+		SccProjectName1 = Libraries/Tras.Core
+		SccLocalPath1 = Libraries\\Tras.Core
+		SccProjectUniqueName2 = Libraries\\Tras.Data\\Tras.Data.csproj
+		SccProjectTopLevelParentUniqueName2 = Tras\u0020Solution.sln
+		SccProjectName2 = Libraries/Tras.Data
+		SccLocalPath2 = Libraries\\Tras.Data
+		SccProjectUniqueName3 = Libraries\\Tras.Services\\Tras.Services.csproj
+		SccProjectTopLevelParentUniqueName3 = Tras\u0020Solution.sln
+		SccProjectName3 = Libraries/Tras.Services
+		SccLocalPath3 = Libraries\\Tras.Services
+		SccProjectUniqueName4 = Presentation\\Tras.Console\\Tras.Console.csproj
+		SccProjectTopLevelParentUniqueName4 = Tras\u0020Solution.sln
+		SccProjectName4 = Presentation/Tras.Console
+		SccLocalPath4 = Presentation\\Tras.Console
+		SccProjectUniqueName5 = Presentation\\Tras.Web.Framework\\Tras.Web.Framework.csproj
+		SccProjectTopLevelParentUniqueName5 = Tras\u0020Solution.sln
+		SccProjectName5 = Presentation/Tras.Web.Framework
+		SccLocalPath5 = Presentation\\Tras.Web.Framework
+		SccProjectUniqueName6 = Presentation\\Tras.Web\\Tras.Web.csproj
+		SccProjectTopLevelParentUniqueName6 = Tras\u0020Solution.sln
+		SccProjectName6 = Presentation/Tras.Web
+		SccLocalPath6 = Presentation\\Tras.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D1C7910-199C-48C3-B3C2-D08243826629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1C7910-199C-48C3-B3C2-D08243826629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1C7910-199C-48C3-B3C2-D08243826629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1C7910-199C-48C3-B3C2-D08243826629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB1FF124-5B67-4A7B-A766-139CCFC2A66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB1FF124-5B67-4A7B-A766-139CCFC2A66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB1FF124-5B67-4A7B-A766-139CCFC2A66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB1FF124-5B67-4A7B-A766-139CCFC2A66B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711F2544-BC37-4316-A2B6-2B259BD8CB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711F2544-BC37-4316-A2B6-2B259BD8CB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711F2544-BC37-4316-A2B6-2B259BD8CB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711F2544-BC37-4316-A2B6-2B259BD8CB5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FE4976E-77C9-42C1-9EB7-8A64F2BCAEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FE4976E-77C9-42C1-9EB7-8A64F2BCAEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FE4976E-77C9-42C1-9EB7-8A64F2BCAEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FE4976E-77C9-42C1-9EB7-8A64F2BCAEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4BF7A69-5E6A-4789-BD8D-CCF10B9ACD01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4BF7A69-5E6A-4789-BD8D-CCF10B9ACD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4BF7A69-5E6A-4789-BD8D-CCF10B9ACD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4BF7A69-5E6A-4789-BD8D-CCF10B9ACD01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A1FF28-CE33-4FA3-835A-450F0992D964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A1FF28-CE33-4FA3-835A-450F0992D964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A1FF28-CE33-4FA3-835A-450F0992D964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A1FF28-CE33-4FA3-835A-450F0992D964}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4D1C7910-199C-48C3-B3C2-D08243826629} = {09ED47F8-6CBF-463B-8BFA-50358F0B4871}
+		{EB1FF124-5B67-4A7B-A766-139CCFC2A66B} = {09ED47F8-6CBF-463B-8BFA-50358F0B4871}
+		{711F2544-BC37-4316-A2B6-2B259BD8CB5C} = {09ED47F8-6CBF-463B-8BFA-50358F0B4871}
+		{9FE4976E-77C9-42C1-9EB7-8A64F2BCAEA4} = {4CDCAFD0-7F06-4213-829F-23C459DE44AF}
+		{F4BF7A69-5E6A-4789-BD8D-CCF10B9ACD01} = {4CDCAFD0-7F06-4213-829F-23C459DE44AF}
+		{F1A1FF28-CE33-4FA3-835A-450F0992D964} = {4CDCAFD0-7F06-4213-829F-23C459DE44AF}
+	EndGlobalSection
+EndGlobal
